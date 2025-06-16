@@ -199,21 +199,45 @@ export default function MedicalCRM() {
                             <div className="panel-header">
                                 <div className="panel-header__left">
                                     <h1 className="panel-title">Отзывы</h1>
+
                                     <div className="clinic-selector">
                                         <span className="clinic-selector__label">Клиники</span>
-                                        <select className="clinic-selector__select">
-                                            <option>Стоматология "здоровье"</option>
-                                        </select>
+                                        <div className="clinic-selector__dropdown">
+                                            <span className="clinic-selector__selected">Выбрано 2</span>
+                                            <svg className="clinic-selector__arrow" width="14" height="8"
+                                                 viewBox="0 0 14 8" fill="none">
+                                                <path d="M1 1L7 7L13 1" stroke="#333" strokeWidth="1.5"
+                                                      strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
+
+                                            <div className="clinic-selector__menu">
+                                                <input className="clinic-selector__search" placeholder="Поиск..."/>
+                                                <label><input type="checkbox" defaultChecked/> Джимед</label>
+                                                <label><input type="checkbox"/> Стоматология "здоровье"</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <button className="xls-button">
-                                    <span>XLS</span>
-                                    <Download className="xls-button__icon"/>
-                                </button>
+
+                                <div className="panel-header__right">
+                                    <div className="search-box">
+                                        <input type="text" placeholder="Поиск..."/>
+                                        <svg className="search-icon" width="16" height="16" viewBox="0 0 16 16">
+                                            <circle cx="7" cy="7" r="6" stroke="#888" strokeWidth="2" fill="none"/>
+                                            <line x1="11" y1="11" x2="15" y2="15" stroke="#888" strokeWidth="2"/>
+                                        </svg>
+                                    </div>
+
+                                    <button className="xls-button">
+                                        <span>XLS</span>
+                                        <Download className="xls-button__icon"/>
+                                    </button>
+                                </div>
                             </div>
 
                             {/* Table Header */}
-                            <ReviewTable reviews={reviews} renderStars={renderStars} renderBadge={renderBadge} getSMSIcon={getSMSIcon} />
+                            <ReviewTable reviews={reviews} renderStars={renderStars} renderBadge={renderBadge}
+                                         getSMSIcon={getSMSIcon}/>
 
 
                             {/* Footer with Pagination */}
