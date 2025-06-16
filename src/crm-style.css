@@ -1,6 +1,6 @@
 .medical-crm {
     min-height: 100vh;
-    background-color: #f9fafb;
+    background-color: #F9F9FB;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -103,6 +103,7 @@
     max-width: 1440px;
     margin: 0 auto;
     padding: 1.5rem 1rem;
+    background: #F9F9FB;
 }
 
 .layout {
@@ -253,6 +254,10 @@
     margin-top: 4px;
     padding: 8px;
     display: none;
+}
+
+.clinic-selector__menu label {
+    color: black;
 }
 
 .clinic-selector__dropdown:hover .clinic-selector__menu {
@@ -861,4 +866,401 @@
 
 .show-more:hover {
     text-decoration: none;
+}
+
+/* Visits Page Styles */
+.visits-container {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.visits-card {
+    max-width: 100%;
+    margin: 0;
+    background: white;
+    border-radius: 24px;
+    box-shadow: none;
+    overflow: hidden;
+    padding: 24px;
+}
+
+.visits-header {
+    padding: 0 0 8px 0;
+    border-bottom: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: transparent;
+}
+
+.visits-header__left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.visits-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.25em 0;
+    line-height: 1.1;
+}
+
+.visits-calendar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 0.25em;
+}
+
+.visits-calendar__date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 16px;
+}
+
+.visits-header__right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.visits-search {
+    position: relative;
+    width: 240px;
+}
+
+.visits-search__input {
+    width: 100%;
+    padding: 8px 36px 8px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fff;
+    color: #111827;
+    outline: none;
+    transition: border 0.2s;
+}
+.visits-search__input:focus {
+    border: 1.5px solid #10b981;
+}
+
+.visits-search__icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    width: 18px;
+    height: 18px;
+}
+
+.visits-add-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: #10b981;
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1.5px solid #10b981;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+.visits-add-button:hover {
+    background: #ecfdf5;
+}
+
+.visits-filters {
+    padding: 0 0 16px 0;
+    background: transparent;
+    border-bottom: none;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+}
+
+.visits-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.visits-filter-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.visits-filter-select {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 15px;
+    background: #fff;
+    min-width: 220px;
+    color: #111827;
+}
+
+.visits-table-container {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.visits-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+}
+
+.visits-table-header {
+    background: #F9F9F9;
+}
+
+.visits-table-header-cell {
+    padding: 10px 8px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    background: #fff;
+}
+
+.visits-table-row {
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    background: #fff;
+    transition: background 0.15s;
+}
+.visits-table-row:hover {
+    background: #f9fafb;
+}
+
+.visits-table-cell {
+    padding: 8px 8px;
+    vertical-align: middle;
+    font-size: 15px;
+    color: #111827;
+}
+
+.visits-patient-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.visits-patient-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.visits-patient-phone {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.visits-doctor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.visits-doctor-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.visits-doctor-specialty {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.visits-comment {
+    font-size: 13px;
+    color: #6b7280;
+    max-width: 420px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.visits-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.visits-action-button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    transition: background 0.15s;
+}
+.visits-action-button:hover {
+    background: #f3f4f6;
+}
+.visits-action-button--phone {
+    color: #10b981;
+}
+.visits-action-button--message {
+    color: #10b981;
+}
+.visits-action-button--edit {
+    color: #6b7280;
+}
+.visits-action-button--delete {
+    color: #ef4444;
+}
+
+.visits-footer {
+    padding: 0 0 0 0;
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+}
+
+.visits-footer__left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.visits-sms-button {
+    padding: 10px 24px;
+    background: #e5e7eb;
+    color: #9ca3af;
+    border: none;
+    border-radius: 8px;
+    cursor: not-allowed;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.visits-sms-counter {
+    font-size: 15px;
+    color: #6b7280;
+}
+.visits-sms-counter strong, .visits-sms-counter .over {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.visits-footer__right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.visits-pagination {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.visits-page-button {
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 15px;
+    min-width: 32px;
+    height: 32px;
+    text-align: center;
+    color: #6b7280;
+    transition: background 0.15s, color 0.15s;
+}
+.visits-page-button--active {
+    background: #10b981;
+    color: #fff;
+}
+.visits-page-button--inactive {
+    color: #6b7280;
+}
+
+.visits-results-counter {
+    font-size: 15px;
+    color: #6b7280;
+}
+
+.visits-page-jump {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    color: #6b7280;
+}
+
+.visits-page-input {
+    width: 48px;
+    padding: 4px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    text-align: center;
+    background: #fff;
+    color: #111827;
+}
+
+.visits-show-more {
+    font-size: 15px;
+    color: #6b7280;
+    text-decoration: underline;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.visits-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #7E82994D;
+    background: transparent;
+    border-radius: 4px;
+    accent-color: #10b981;
+    margin: 0;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 16px;
+    height: 16px;
+    border: 2px solid #7E82994D;
+    background: #F9F9FB !important;
+    border-radius: 4px;
+    accent-color: #10b981;
+    margin: 0;
+    cursor: pointer;
 }

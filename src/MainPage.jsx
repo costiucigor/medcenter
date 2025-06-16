@@ -1,9 +1,60 @@
-
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Search, Download, Star, MessageSquare, Trash2, ChevronLeft, ChevronRight } from 'lucide-react';
 import './crm-style.css';
 import Sidebar from "./components/sidebar.tsx";
 import ReviewTable from "./components/table.jsx";
+
+const clinicsList = [
+  'Джимед',
+  'Стоматология "здоровье"',
+  'Стоматология "SimClinic"',
+  'Стоматология "Улыбка"',
+  'Екатерининская',
+  'Армед',
+  'GB',
+  '4 больница',
+  '2 больница',
+  'Морару Клиник',
+  'Option 1',
+];
+
+function ClinicSelector() {
+  const [open, setOpen] = useState(false);
+  const [search, setSearch] = useState('');
+  const [selected, setSelected] = useState([clinicsList[1], clinicsList[2]]);
+  const ref = useRef();
+
+  const filtered = clinicsList.filter(c => c.toLowerCase().includes(search.toLowerCase()));
+  const handleToggle = (clinic) => {
+    setSelected(sel => sel.includes(clinic) ? sel.filter(c => c !== clinic) : [...sel, clinic]);
+  };
+  React.useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    if (open) document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [open]);
+  return (
+    <div className="clinic-selector">
+      <span className="clinic-selector__label">Клиники</span>
+      <div className="clinic-selector__dropdown" ref={ref} tabIndex={0} onClick={() => setOpen(v => !v)} style={{borderColor: open ? '#10b981' : '#00b360'}}>
+        <span className="clinic-selector__selected">{selected.length > 1 ? `Выбрано ${selected.length}` : selected[0] || 'Выбрать'}</span>
+        <svg className="clinic-selector__arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1L7 7L13 1" stroke="#333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        {open && (
+          <div className="clinic-selector__menu" style={{display:'block'}} onClick={e => e.stopPropagation()}>
+            <input className="clinic-selector__search" placeholder="Поиск..." value={search} onChange={e => setSearch(e.target.value)} />
+            {filtered.map(clinic => (
+              <label key={clinic} style={{display:'flex',alignItems:'center',gap:8,padding:'4px 0'}}>
+                <input type="checkbox" checked={selected.includes(clinic)} onChange={() => handleToggle(clinic)} /> {clinic}
+              </label>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function MedicalCRM() {
     const [currentPage, setCurrentPage] = useState(1);
@@ -199,24 +250,7 @@ export default function MedicalCRM() {
                             <div className="panel-header">
                                 <div className="panel-header__left">
                                     <h1 className="panel-title">Отзывы</h1>
-
-                                    <div className="clinic-selector">
-                                        <span className="clinic-selector__label">Клиники</span>
-                                        <div className="clinic-selector__dropdown">
-                                            <span className="clinic-selector__selected">Выбрано 2</span>
-                                            <svg className="clinic-selector__arrow" width="14" height="8"
-                                                 viewBox="0 0 14 8" fill="none">
-                                                <path d="M1 1L7 7L13 1" stroke="#333" strokeWidth="1.5"
-                                                      strokeLinecap="round" strokeLinejoin="round"/>
-                                            </svg>
-
-                                            <div className="clinic-selector__menu">
-                                                <input className="clinic-selector__search" placeholder="Поиск..."/>
-                                                <label><input type="checkbox" defaultChecked/> Джимед</label>
-                                                <label><input type="checkbox"/> Стоматология "здоровье"</label>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ClinicSelector />
                                 </div>
 
                                 <div className="panel-header__right">

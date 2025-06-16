@@ -1,4 +1,4 @@
-import type React from "react"
+import React from "react"
 import "./sidebar.css"
 
 interface SidebarProps {
@@ -6,15 +6,24 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ activeItem = "reviews" }) => {
-    const menuItems = [
+    const mainMenu = [
         {
             id: "clinics",
             label: "Клиники",
             icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M3 21h18" />
-                    <path d="M5 21V7l8-4v18" />
-                    <path d="M19 21V11l-6-4" />
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 21.1833H21" stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path
+                        d="M5 21.1833V5.18335C5 4.65292 5.21071 4.14421 5.58579 3.76914C5.96086 3.39406 6.46957 3.18335 7 3.18335H17C17.5304 3.18335 18.0391 3.39406 18.4142 3.76914C18.7893 4.14421 19 4.65292 19 5.18335V21.1833"
+                        stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path
+                        d="M9 21.1833V17.1833C9 16.6529 9.21071 16.1442 9.58579 15.7691C9.96086 15.3941 10.4696 15.1833 11 15.1833H13C13.5304 15.1833 14.0391 15.3941 14.4142 15.7691C14.7893 16.1442 15 16.6529 15 17.1833V21.1833"
+                        stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 9.18335H14" stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path d="M12 7.18335V11.1833" stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
                 </svg>
             ),
         },
@@ -22,27 +31,63 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem = "reviews" }) => {
             id: "reviews",
             label: "Отзывы",
             icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" />
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M11.9998 17.9333L5.82784 21.1783L7.00684 14.3053L2.00684 9.4383L8.90684 8.4383L11.9928 2.1853L15.0788 8.4383L21.9788 9.4383L16.9788 14.3053L18.1578 21.1783L11.9998 17.9333Z"
+                        stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
+
             ),
         },
         {
             id: "visits",
             label: "Визиты",
             icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12,6 12,12 16,14" />
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6 4.18335H5C4.46957 4.18335 3.96086 4.39406 3.58579 4.76914C3.21071 5.14421 3 5.65292 3 6.18335V9.68335C3 11.142 3.57946 12.541 4.61091 13.5724C5.64236 14.6039 7.04131 15.1833 8.5 15.1833C9.95869 15.1833 11.3576 14.6039 12.3891 13.5724C13.4205 12.541 14 11.142 14 9.68335V6.18335C14 5.65292 13.7893 5.14421 13.4142 4.76914C13.0391 4.39406 12.5304 4.18335 12 4.18335H11"
+                        stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path
+                        d="M8 15.1833C8 15.9713 8.15519 16.7515 8.45672 17.4795C8.75825 18.2074 9.20021 18.8688 9.75736 19.426C10.3145 19.9831 10.9759 20.4251 11.7039 20.7266C12.4319 21.0282 13.2121 21.1833 14 21.1833C14.7879 21.1833 15.5681 21.0282 16.2961 20.7266C17.0241 20.4251 17.6855 19.9831 18.2426 19.426C18.7998 18.8688 19.2417 18.2074 19.5433 17.4795C19.8448 16.7515 20 15.9713 20 15.1833V12.1833"
+                        stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 3.18335V5.18335" stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path d="M6 3.18335V5.18335" stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                    <path
+                        d="M18 10.1833C18 10.7138 18.2107 11.2225 18.5858 11.5976C18.9609 11.9726 19.4696 12.1833 20 12.1833C20.5304 12.1833 21.0391 11.9726 21.4142 11.5976C21.7893 11.2225 22 10.7138 22 10.1833C22 9.65292 21.7893 9.14421 21.4142 8.76914C21.0391 8.39406 20.5304 8.18335 20 8.18335C19.4696 8.18335 18.9609 8.39406 18.5858 8.76914C18.2107 9.14421 18 9.65292 18 10.1833Z"
+                        stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             ),
         },
+    ];
+    const secondaryMenu = [
         {
             id: "analytics",
             label: "Аналитика",
             icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" />
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_109_3245)">
+                        <path d="M4 16.1832L10 9.18323L15 14.1832L20 8.18323" stroke="black" stroke-width="1.5"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M14 14.1832C14 14.4484 14.1054 14.7028 14.2929 14.8903C14.4804 15.0779 14.7348 15.1832 15 15.1832C15.2652 15.1832 15.5196 15.0779 15.7071 14.8903C15.8946 14.7028 16 14.4484 16 14.1832C16 13.918 15.8946 13.6637 15.7071 13.4761C15.5196 13.2886 15.2652 13.1832 15 13.1832C14.7348 13.1832 14.4804 13.2886 14.2929 13.4761C14.1054 13.6637 14 13.918 14 14.1832Z"
+                            stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M9 9.18323C9 9.44844 9.10536 9.7028 9.29289 9.89033C9.48043 10.0779 9.73478 10.1832 10 10.1832C10.2652 10.1832 10.5196 10.0779 10.7071 9.89033C10.8946 9.7028 11 9.44844 11 9.18323C11 8.91801 10.8946 8.66366 10.7071 8.47612C10.5196 8.28858 10.2652 8.18323 10 8.18323C9.73478 8.18323 9.48043 8.28858 9.29289 8.47612C9.10536 8.66366 9 8.91801 9 9.18323Z"
+                            stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M3 16.1832C3 16.4484 3.10536 16.7028 3.29289 16.8903C3.48043 17.0779 3.73478 17.1832 4 17.1832C4.26522 17.1832 4.51957 17.0779 4.70711 16.8903C4.89464 16.7028 5 16.4484 5 16.1832C5 15.918 4.89464 15.6637 4.70711 15.4761C4.51957 15.2886 4.26522 15.1832 4 15.1832C3.73478 15.1832 3.48043 15.2886 3.29289 15.4761C3.10536 15.6637 3 15.918 3 16.1832Z"
+                            stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path
+                            d="M19 8.18323C19 8.44844 19.1054 8.7028 19.2929 8.89033C19.4804 9.07787 19.7348 9.18323 20 9.18323C20.2652 9.18323 20.5196 9.07787 20.7071 8.89033C20.8946 8.7028 21 8.44844 21 8.18323C21 7.91801 20.8946 7.66366 20.7071 7.47612C20.5196 7.28858 20.2652 7.18323 20 7.18323C19.7348 7.18323 19.4804 7.28858 19.2929 7.47612C19.1054 7.66366 19 7.91801 19 8.18323Z"
+                            stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_109_3245">
+                            <rect width="24" height="24" fill="white" transform="translate(0 0.183228)"/>
+                        </clipPath>
+                    </defs>
                 </svg>
             ),
         },
@@ -50,12 +95,20 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem = "reviews" }) => {
             id: "medods",
             label: "MEDODS",
             icon: (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" strokeWidth="1.5">
-                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect y="0.183228" width="24" height="24" fill="url(#pattern0_15_1792)"/>
+                    <defs>
+                        <pattern id="pattern0_15_1792" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_15_1792" transform="scale(0.00444444)"/>
+                        </pattern>
+                        <image id="image0_15_1792" width="225" height="225" preserveAspectRatio="none"
+                               xlink:href="data:image/png;base64,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"/>
+                    </defs>
                 </svg>
             ),
         },
-    ]
+    ];
 
     return (
         <div className="sidebar">
@@ -63,7 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem = "reviews" }) => {
                 <div className="logo-container">
                     <svg width="257" height="74" viewBox="0 0 257 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect y="4" width="65.1832" height="65.1832" rx="15.644" fill="url(#paint0_linear_15_3465)"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
+                        <path fillRule="evenodd" clipRule="evenodd"
                               d="M43.811 35.5327C44.9668 33.5304 45.6279 31.2082 45.6279 28.7319C45.6279 21.1928 39.4994 15.0811 31.9395 15.0811C24.3795 15.0811 18.251 21.1928 18.251 28.7319C18.251 31.2405 18.9295 33.5909 20.1134 35.6108C20.1379 35.663 20.1623 35.7141 20.1867 35.7642C21.5333 37.8492 22.7618 39.5357 23.8978 41.0952C27.1945 45.6209 29.7126 49.0777 32.0777 58.102C34.4994 48.8618 36.9211 45.4587 40.2587 40.7685C41.304 39.2996 42.4391 37.7045 43.6922 35.7642C43.7326 35.6866 43.7722 35.6094 43.811 35.5327ZM37.3319 28.8698C37.3319 31.7636 34.9795 34.1095 32.0777 34.1095C29.1759 34.1095 26.8235 31.7636 26.8235 28.8698C26.8235 25.976 29.1759 23.6301 32.0777 23.6301C34.9795 23.6301 37.3319 25.976 37.3319 28.8698Z"
                               fill="white"/>
                         <path
@@ -109,24 +162,38 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem = "reviews" }) => {
                         <defs>
                             <linearGradient id="paint0_linear_15_3465" x1="0" y1="4" x2="65.1832" y2="69.1832"
                                             gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#FFA6A7"/>
-                                <stop offset="1" stop-color="#E30206"/>
+                                <stop stopColor="#FFA6A7"/>
+                                <stop offset="1" stopColor="#E30206"/>
                             </linearGradient>
                         </defs>
                     </svg>
-
                 </div>
             </div>
-
-            <nav className="sidebar-nav">
-                {menuItems.map((item) => (
-                    <div key={item.id} className={`nav-item ${activeItem === item.id ? "active" : ""}`}>
+            <div className="sidebar-divider" />
+            <nav className="sidebar-nav sidebar-nav-main">
+                {mainMenu.map((item) => (
+                    <div
+                        key={item.id}
+                        className={`nav-item${activeItem === item.id ? " active" : ""}`}
+                    >
                         <span className="nav-icon">{item.icon}</span>
                         <span className="nav-label">{item.label}</span>
                     </div>
                 ))}
             </nav>
-
+            <div className="sidebar-divider" />
+            <nav className="sidebar-nav sidebar-nav-secondary">
+                {secondaryMenu.map((item) => (
+                    <div
+                        key={item.id}
+                        className={`nav-item${activeItem === item.id ? " active" : ""}`}
+                    >
+                        <span className="nav-icon">{item.icon}</span>
+                        <span className="nav-label">{item.label}</span>
+                    </div>
+                ))}
+            </nav>
+            <div className="sidebar-footer-divider" />
             <div className="sidebar-footer">
                 <div className="user-profile">
                     <div className="user-avatar">B</div>
@@ -134,7 +201,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem = "reviews" }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;
